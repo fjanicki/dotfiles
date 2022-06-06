@@ -1,6 +1,9 @@
 [user]
-	name = Lars Kappert
-	email = lars@webpro.nl
+	name = Frederic Portaria-Janicki
+	email = frederic@fjanicki.ca
+
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
 
 [github]
 	user = webpro
