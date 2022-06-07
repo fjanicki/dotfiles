@@ -38,3 +38,12 @@ brew "tree"
 brew "unar"
 brew "webp"
 brew "wget"
+
+# AWS Infra tools
+brew "awscli"
+brew "kubectl"
+brew "eksctl"
+
+# User addons
+brew "tldr"
+brew "rsync"
