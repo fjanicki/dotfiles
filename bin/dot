@@ -15,6 +15,7 @@ sub_help () {
   echo "   macos            Apply macOS system defaults"
   echo "   test             Run tests"
   echo "   update           Update packages and pkg managers (OS, brew, npm, gem)"
+  echo "   ssh              Generate a new SSH key for git, add it to the key manager and show the public part for easy upload."
 }
 
 sub_edit () {
@@ -44,6 +45,10 @@ sub_macos () {
 
 sub_dock () {
   . "${DOTFILES_DIR}/macos/dock.sh" && echo "Dock reloaded."
+}
+
+sub_ssh () {
+  . "${DOTFILES_DIR}/macos/ssh.sh" && echo "SSH Key Created. Now upload the public part to GitHub / GitLab."
 }
 
 case $COMMAND_NAME in

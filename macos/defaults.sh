@@ -23,6 +23,7 @@ defaults write NSGlobalDomain AppleLanguages -array "en-CA" "fr-CA"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=CAD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
+defaults write -g AppleTemperatureUnit -string "Celsius"
 
 # Set the timezone (see `sudo systemsetup -listtimezones` for other values)
 sudo systemsetup -settimezone "America/Montreal" > /dev/null
@@ -76,6 +77,15 @@ sudo systemsetup -setrestartfreeze on
 
 # Disable Notification Center and remove the menu bar icon
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+# Show various icons in the toolbar
+# Full list can be found here: cat ~/Library/Preferences/com.apple.systemuiserver.plist
+defaults write com.apple.systemuiserver menuExtras -array \
+"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+"/System/Library/CoreServices/Menu Extras/Clock.menu" \
+"/System/Library/CoreServices/Menu Extras/Displays.menu" \
+"/System/Library/CoreServices/Menu Extras/Volume.menu"
 
 ###############################################################################
 # Keyboard & Input                                                            #

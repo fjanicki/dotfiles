@@ -45,5 +45,4 @@ brew "kubectl"
 brew "eksctl"
 
 # User addons
-brew "tldr"
 brew "rsync"

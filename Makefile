@@ -97,3 +97,4 @@ rust-packages: rust
 
 test:
 	eval $$(fnm env); bats test
+	
