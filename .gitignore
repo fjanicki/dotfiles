@@ -1,2 +1,3 @@
 system/.custom
 system/.exports
+**.lock.json
