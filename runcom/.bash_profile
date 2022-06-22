@@ -42,3 +42,5 @@ unset CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 # Export
 
 export DOTFILES_DIR
+
+complete -C /opt/homebrew/bin/terraform terraform

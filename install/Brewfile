@@ -1,6 +1,7 @@
 tap "goles/battery"
 tap "homebrew/bundle"
 tap "homebrew/core"
+tap "hashicorp/tap"
 
 brew "bat"
 brew "bats-core"
@@ -44,6 +45,9 @@ brew "wget"
 brew "awscli"
 brew "kubectl"
 brew "eksctl"
+brew "k9s"
+brew "helm"
+brew "hashicorp/tap/terraform"
 
 # User addons
 brew "rsync"
