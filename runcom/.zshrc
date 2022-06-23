@@ -101,7 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source <(kubectl completion zsh)  # setup autocomplete in zsh into the current shell
-echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc # add autocomplete permanently to your zsh shell
 alias k=kubectl
 complete -o default -F __start_kubectl k
 [[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
+
+# Enable the use of NPM
+eval "$(fnm env --use-on-cd)"

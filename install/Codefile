@@ -11,3 +11,4 @@ stkb.rewrap
 ms-azuretools.vscode-docker
 amazonwebservices.aws-toolkit-vscode
 ms-kubernetes-tools.vscode-kubernetes-tools
+ms-vscode.makefile-tools

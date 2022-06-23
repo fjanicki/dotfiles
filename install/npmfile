@@ -14,3 +14,4 @@ underscore-cli
 yarn
 serverless
 npx
+@nestjs/cli
