@@ -65,12 +65,15 @@ ZSH_THEME="robbyrussell"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Autostarts TMUX
+ZSH_TMUX_AUTOSTART_ONCE="true"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose aws cp httpie macos minikube pip tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +85,13 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='mvim'
+#fi
+
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -108,3 +113,8 @@ complete -o default -F __start_kubectl k
 # Enable the use of NPM
 eval "$(fnm env --use-on-cd)"
 
+# Helm Completions
+[[ /opt/homebrew/bin/helm ]] && source <(helm completion zsh)
+
+# npm completions
+[[ npm ]] && source <(npm completion)
