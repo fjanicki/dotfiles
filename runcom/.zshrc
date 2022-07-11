@@ -118,3 +118,5 @@ eval "$(fnm env --use-on-cd)"
 
 # npm completions
 [[ npm ]] && source <(npm completion)
+
+alias ssm="aws ssm start-session --target "
