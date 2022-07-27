@@ -44,3 +44,4 @@ unset CURRENT_SCRIPT SCRIPT_PATH DOTFILE
 export DOTFILES_DIR
 
 complete -C /opt/homebrew/bin/terraform terraform
+. "$HOME/.cargo/env"

@@ -120,3 +120,5 @@ eval "$(fnm env --use-on-cd)"
 [[ npm ]] && source <(npm completion)
 
 alias ssm="aws ssm start-session --target "
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias awslogin="aws sso login --profile root && aws sso login --profile prod && aws sso login --profile staging"
