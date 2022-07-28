@@ -39,6 +39,7 @@ cask "steam"
 cask "spotify"
 cask "visual-studio-code"
 cask "whatsapp"
+cask "via"
 cask "vlc"
 cask "zoom"
 
