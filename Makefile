@@ -55,19 +55,21 @@ brew:
 zsh:
 	is-executable zsh || curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh | bash
 
+bash: BASH_BIN=$(HOMEBREW_PREFIX)/bin/bash
+bash: BREW_BIN=$(HOMEBREW_PREFIX)/bin/brew
 bash: SHELLS=/private/etc/shells
 bash: brew
 ifdef GITHUB_ACTION
-	if ! grep -q bash $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append bash $(SHELLS) && \
-		sudo chsh -s bash; \
+	if ! grep -q $(BASH_BIN) $(SHELLS); then \
+		$(BREW_BIN) install bash bash-completion@2 pcre && \
+		sudo append $(BASH_BIN) $(SHELLS) && \
+		sudo chsh -s $(BASH_BIN); \
 	fi
 else
-	if ! grep -q bash $(SHELLS); then \
-		brew install bash bash-completion@2 pcre && \
-		sudo append bash $(SHELLS) && \
-		chsh -s bash; \
+	if ! grep -q $(BASH_BIN) $(SHELLS); then \
+		$(BREW_BIN) install bash bash-completion@2 pcre && \
+		sudo append $(BASH_BIN) $(SHELLS) && \
+		chsh -s $(BASH_BIN); \
 	fi
 endif
 
