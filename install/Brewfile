@@ -66,5 +66,8 @@ brew "localstack"
 brew "helm"
 brew "hashicorp/tap/terraform"
 
+# Crypto Tools
+brew "solana"
+
 # User addons
 brew "rsync"
