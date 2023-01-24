@@ -8,6 +8,7 @@ plugins=(git docker docker-compose aws cp httpie macos minikube pip tmux)
 plugins+=(yarn-completion)
 
 source $ZSH/oh-my-zsh.sh
+source ~/.secrets
 # Source the dotfiles (order matters)
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function,function_fs,function_network,function_text,path,env,exports,alias,fnm,grep,prompt,completion,fix}; do
@@ -40,4 +41,3 @@ eval "$(fnm env --use-on-cd)"
 
 alias ssm="aws ssm start-session --target "
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias awslogin="aws sso login --profile root && aws sso login --profile prod && aws sso login --profile staging && aws sso login --profile shared"
