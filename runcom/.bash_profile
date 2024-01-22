@@ -45,3 +45,5 @@ export DOTFILES_DIR
 
 complete -C /opt/homebrew/bin/terraform terraform
 . "$HOME/.cargo/env"
+
+export PATH="/Users/fjanicki/.local/share/solana/install/active_release/bin:$PATH"

@@ -1,6 +1,12 @@
+#zmodload zsh/zprof
+
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.dotfiles/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$PATH:~/.local/bin/
+
+export DISABLE_AUTO_TITLE='true'
 ZSH_THEME="robbyrussell"
 ZSH_TMUX_AUTOSTART_ONCE="true"
 
@@ -9,6 +15,10 @@ plugins+=(yarn-completion)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.secrets
+alias vim="nvim"
+alias vi="nvim"
+alias go-swagger='docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$(go env GOPATH):/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'
+
 # Source the dotfiles (order matters)
 
 for DOTFILE in "$DOTFILES_DIR"/system/.{function,function,function_fs,function_network,function_text,path,env,exports,alias,fnm,grep,prompt,completion,fix}; do
@@ -54,6 +64,4 @@ function fixFolder {
   SetFile -d "$mod_date" "$file"
 }
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#zprof

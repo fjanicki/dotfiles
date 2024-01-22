@@ -18,7 +18,7 @@ The hyper key is defined as `⌘ + ⌥ + ⌃` (control + option + command). Pres
 | M   | Mail               |
 | P   | System Preferences |
 | S   | Spotify            |
-| T   | Terminal           |
+| T   | Kitty              |
 
 ## Window Management
 
