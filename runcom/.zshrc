@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #zmodload zsh/zprof
 
 export PATH=$HOME/bin:/opt/homebrew/bin:/usr/local/bin:$HOME/.dotfiles/bin:$PATH
@@ -5,9 +12,10 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:~/.local/bin/
-
+export PATH=$PATH:$(go env GOPATH)/bin
 export DISABLE_AUTO_TITLE='true'
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART_ONCE="true"
 
 plugins=(git docker docker-compose aws cp httpie macos minikube pip tmux)
@@ -65,3 +73,19 @@ function fixFolder {
 }
 
 #zprof
+
+# bun completions
+[ -s "/Users/fjanicki/.bun/_bun" ] && source "/Users/fjanicki/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+function gi() { curl -sLw "\n" https://www.toptal.com/developers/gitignore/api/$@ ;}
+eval "$(zoxide init zsh --cmd cd)"
+
+alias gitpullr='(for dir in */; do cd "${dir}" && [ -d ".git" ] && git pull && cd ..; done)'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
