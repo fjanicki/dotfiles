@@ -19,7 +19,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_TMUX_AUTOSTART_ONCE="true"
 
 plugins=(git docker docker-compose aws cp httpie macos minikube pip tmux)
-plugins+=(yarn-completion)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.secrets
@@ -89,3 +88,43 @@ alias gitpullr='(for dir in */; do cd "${dir}" && [ -d ".git" ] && git pull && c
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+alias restart-gitlab-runner='kubectl --context=crazybet-staging rollout restart deployment gitlab-gitlab-runner -n gitlab'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/fjanicki/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/fjanicki/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/fjanicki/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/fjanicki/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# history setup
+HISTFILE=$HOME/.zhistory
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ---- Eza (better ls) -----
+
+alias ls="eza --icons=always"
